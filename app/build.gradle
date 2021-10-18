@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 //apply plugin: 'android-apt'
+apply plugin: 'log'
 
 android {
     compileSdkVersion 30
@@ -32,4 +33,16 @@ dependencies {
     implementation project(':apt-annotation')
     annotationProcessor project(':apt-processor')
 
+}
+
+apply plugin: PluginDemo
+
+class PluginDemo implements Plugin<Project> {
+    @Override
+    void apply(Project target) {
+        println 'PluginDemo  ~~~~~~~'
+        target.task("hello") {
+            println('task  task  task!!!')
+        }
+    }
 }

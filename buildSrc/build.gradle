@@ -1,0 +1,17 @@
+apply plugin: 'groovy'
+
+repositories {
+    google()
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation gradleApi() // gradle相关的API
+    implementation localGroovy() // groovy语言支持
+//    implementation 'com.android.tools.build:gradle:3.5.3'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
