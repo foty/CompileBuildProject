@@ -1,33 +1,30 @@
 package com.example.compilebuildproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
 
-import com.example.annotation.FindView;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class MainActivity extends AppCompatActivity {
 
-    @FindView(R.id.tvHl)
-    TextView tv;
-
-    @FindView(R.id.tvHl2)
-    TextView tv2;
-
-    @FindView(R.id.tvHl3)
-    TextView tv3;
-
-    @FindView(R.id.tvHl4)
-    TextView tv4;
-
-    @FindView(R.id.tvHl5)
-    TextView tv5;
+//    @FindView(R.id.tvHl)
+//    TextView tv;
+//
+//    @FindView(R.id.tvHl2)
+//    TextView tv2;
+//
+//    @FindView(R.id.tvHl3)
+//    TextView tv3;
+//
+//    @FindView(R.id.tvHl4)
+//    TextView tv4;
+//
+//    @FindView(R.id.tvHl5)
+//    TextView tv5;
 
 
     @Override
@@ -35,11 +32,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        tv = findViewById(R.id.tvHl);
-        bindView(this);
-        tv.setText("xxxx");
+//        bindView(this);
+//        tv.setText("xxxx");
+//        Toast.makeText(this, "I am the injected code", Toast.LENGTH_LONG).show();
 
     }
 
+    /**
+     * FindView
+     * @param activity
+     */
     public void bindView(Activity activity) {
         Class clazz = activity.getClass();
         try {

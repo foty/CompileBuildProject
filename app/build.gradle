@@ -4,7 +4,6 @@ apply plugin: 'log'
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.0"
     defaultConfig {
         applicationId "com.example.compilebuildproject"
         minSdkVersion 21
@@ -12,6 +11,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -29,13 +30,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
+
+    // 自定义注解
 //    apt project(':apt-processor')
-    implementation project(':apt-annotation')
-    annotationProcessor project(':apt-processor')
+//    implementation project(':apt-annotation')
+//    annotationProcessor project(':apt-processor')
 
 }
 
 apply plugin: PluginDemo
+
 
 class PluginDemo implements Plugin<Project> {
     @Override
@@ -43,6 +47,23 @@ class PluginDemo implements Plugin<Project> {
         println 'PluginDemo  ~~~~~~~'
         target.task("hello") {
             println('task  task  task!!!')
+        }.doLast {
         }
     }
+}
+
+class Ob {
+    int ver
+    String name
+    String toString() {
+        return "name = ${name}, age = ${ver}"
+    }
+}
+getExtensions().create("obxx", Ob)
+obxx{
+    name = "123"
+    ver = 1
+}
+task testEX {
+    println(project.obxx)
 }

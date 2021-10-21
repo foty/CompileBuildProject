@@ -9,7 +9,10 @@ repositories {
 dependencies {
     implementation gradleApi() // gradle相关的API
     implementation localGroovy() // groovy语言支持
-//    implementation 'com.android.tools.build:gradle:3.5.3'
+    //使用transform功能需要添加该依赖
+    implementation 'com.android.tools.build:gradle:3.5.3'
+    //
+    implementation 'org.javassist:javassist:3.27.0-GA'
 }
 
 tasks.withType(JavaCompile) {
