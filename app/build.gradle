@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'android-apt'
+
+// transform插件
 apply plugin: 'log'
 
 android {
@@ -30,11 +31,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 
-
-    // 自定义注解
-//    apt project(':apt-processor')
-//    implementation project(':apt-annotation')
-//    annotationProcessor project(':apt-processor')
 
 }
 
