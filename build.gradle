@@ -3,11 +3,16 @@
 buildscript {
     repositories {
         google()
+        mavenCentral()
         jcenter()
         
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
+
+        // AspectJ
+        classpath 'org.aspectj:aspectjtools:1.8.8'
+        classpath 'org.aspectj:aspectjweaver:1.8.8'
 
 //        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 
@@ -19,6 +24,7 @@ buildscript {
 allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
         
     }
