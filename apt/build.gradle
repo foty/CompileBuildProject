@@ -40,3 +40,6 @@ dependencies {
     // gradle 小于2.2使用
 //    apt project(':apt-processor')
 }
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

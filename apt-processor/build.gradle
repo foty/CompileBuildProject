@@ -8,8 +8,8 @@ dependencies {
     annotationProcessor "com.google.auto.service:auto-service:1.0-rc6"
 }
 
-sourceCompatibility = "7"
-targetCompatibility = "7"
+sourceCompatibility = "8"
+targetCompatibility = "8"
 
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
