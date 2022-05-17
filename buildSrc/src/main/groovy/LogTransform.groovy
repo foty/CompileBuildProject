@@ -53,7 +53,10 @@ class LogTransform extends Transform {
 
     @Override
     void transform(TransformInvocation trans) throws TransformException, InterruptedException, IOException {
+
+        // 如果没有看到输出这行log，把"\app\build\intermediates\transforms"删除重新build
         println("[transform] ------- start --------")
+
         // 获取输出目录
 //        def out = trans.outputProvider
 //        out.deleteAll()
