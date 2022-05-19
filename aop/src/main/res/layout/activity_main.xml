@@ -6,28 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/btClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="防重点击测试"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/tvEdit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tvLogin"
         android:layout_width="120dp"
-        android:textSize="14sp"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:hint="偶数为成功状态"
         android:inputType="number"
         android:textColor="@color/black"
-        android:hint="偶数为成功状态"
-        android:layout_height="wrap_content"/>
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tvLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tvLogin"
         android:layout_width="160dp"
         android:layout_height="40dp"
-        android:text="登录"
         android:background="#f5f5f5"
         android:gravity="center"
-        android:textSize="14sp"
+        android:text="登录"
         android:textColor="#333333"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

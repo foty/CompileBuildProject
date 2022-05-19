@@ -10,9 +10,11 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
 
-        // AspectJ
-        classpath 'org.aspectj:aspectjtools:1.8.8'
-        classpath 'org.aspectj:aspectjweaver:1.8.8'
+        // 手动配置AspectJ
+//        classpath 'org.aspectj:aspectjtools:1.8.8'
+//        classpath 'org.aspectj:aspectjweaver:1.8.8'
+        // 集成配置AspectJ
+        classpath "com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.10"
 
 //        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 

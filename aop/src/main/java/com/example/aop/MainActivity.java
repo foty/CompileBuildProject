@@ -2,6 +2,9 @@ package com.example.aop;
 
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
         tvEdit = findViewById(R.id.tvEdit);
         login.setOnClickListener(v -> {
             extracted();
+        });
+
+        Button btClick = findViewById(R.id.btClick);
+        btClick.setOnClickListener(v -> {
+            doubleClick(btClick);
         });
     }
 
@@ -58,5 +66,11 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         LoginHelper.getInstance().setILoginFilter(Filter);
+    }
+
+    @OneClick(value = 1500)
+    private void doubleClick(View view) {
+        Log.d("lxx", "点击，点击");
+//        Toast.makeText(this, "点击，点击", Toast.LENGTH_LONG).show();
     }
 }
