@@ -1,4 +1,4 @@
-package com.example.aop;
+package com.example.aop.click;
 
 import android.util.Log;
 import android.view.View;

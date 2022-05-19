@@ -1,4 +1,4 @@
-package com.example.aop;
+package com.example.aop.click;
 
 import android.util.Log;
 import android.view.View;
@@ -14,7 +14,7 @@ import java.lang.reflect.Method;
 @Aspect
 public class OneClickAspect {
 
-    @Pointcut("execution(@com.example.aop.OneClick * *(..))")
+    @Pointcut("execution(@com.example.aop.click.OneClick * *(..))")
     public void methodAnnotated() {
     }
 

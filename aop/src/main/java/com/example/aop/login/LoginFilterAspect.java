@@ -1,4 +1,4 @@
-package com.example.aop;
+package com.example.aop.login;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -17,7 +17,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 @Aspect
 public class LoginFilterAspect {
 
-    @Pointcut("execution(@com.example.aop.LoginFilter * * (..))")
+    @Pointcut("execution(@com.example.aop.login.LoginFilter * * (..))")
     public void LoginFilter() {
     }
 
