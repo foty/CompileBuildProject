@@ -1,4 +1,4 @@
 include ':app', ':apt-annotation', ':apt-processor'
 rootProject.name='CompileBuildProject'
 include ':apt'
-include ':aop'
+include ':aop_aspectj'
