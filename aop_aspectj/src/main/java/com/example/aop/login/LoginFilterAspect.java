@@ -1,9 +1,11 @@
 package com.example.aop.login;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MemberSignature;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -19,6 +21,11 @@ public class LoginFilterAspect {
 
     @Pointcut("execution(@com.example.aop.login.LoginFilter * * (..))")
     public void LoginFilter() {
+    }
+
+    @Before("")
+    public void log(JoinPoint point) {
+
     }
 
     @Around("LoginFilter()")
