@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-// transform插件
+// transform插件(buildSrc，使用javassist实现代码织入)
 apply plugin: 'log'
 
 android {
