@@ -1,8 +1,11 @@
 package com.example.aop.login;
 
+import android.util.Log;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -21,11 +24,6 @@ public class LoginFilterAspect {
 
     @Pointcut("execution(@com.example.aop.login.LoginFilter * * (..))")
     public void LoginFilter() {
-    }
-
-    @Before("")
-    public void log(JoinPoint point) {
-
     }
 
     @Around("LoginFilter()")
@@ -49,4 +47,21 @@ public class LoginFilterAspect {
             iLoginFilter.login(loginFilter.loginStatue()); // 触发回调
         }
     }
+
+
+
+    @Before("execution(* com.example.aop.MainActivity.onCreate(..))")
+    public void method(JoinPoint joinPoint) throws Throwable {
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        String className = joinPoint.getThis().getClass().getSimpleName();
+        Log.e("lxx", "class:" + className + " method:" + methodSignature.getName());
+    }
+
+    @After("execution(* com.example.aop.MainActivity.onCreate(..))")
+    public void method2(JoinPoint joinPoint) throws Throwable {
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        String className = joinPoint.getThis().getClass().getSimpleName();
+        Log.e("lxx", "class:" + className + " method:" + methodSignature.getName());
+    }
+
 }
