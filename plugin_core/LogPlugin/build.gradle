@@ -1,0 +1,34 @@
+apply plugin: 'groovy'
+
+repositories {
+    google()
+    mavenCentral()
+    jcenter()
+}
+
+gradlePlugin {
+    plugins {
+        version {
+            // 在 app 模块需要通过 id 引用这个插件
+            id = 'log'
+            // 实现这个插件的类的路径
+            implementationClass = 'LogsPlugin'
+        }
+    }
+}
+
+dependencies {
+    implementation gradleApi() // gradle相关的API
+    implementation localGroovy() // groovy语言支持
+    //使用transform功能需要添加该依赖
+    implementation 'com.android.tools.build:gradle:3.5.3'
+    //
+    implementation 'org.javassist:javassist:3.27.0-GA'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+//  https://juejin.cn/post/6844904169833234439
+// https://blog.csdn.net/qq_20613731/article/details/119766219

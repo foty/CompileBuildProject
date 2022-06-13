@@ -1,0 +1,3 @@
+include ':LogPlugin'
+rootProject.name = "plugin_core"
+
