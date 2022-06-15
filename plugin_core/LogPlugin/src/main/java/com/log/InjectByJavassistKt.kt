@@ -24,7 +24,7 @@ class InjectByJavassistKt {
         }
 
         private fun doInject2(project: Project, clsFile: File, originPath: String) {
-            println("[javassist] ------ javassist modify start ------")
+            println("[javassist] ------ javassist modify start >>>>>>>>> ")
             println("[javassist] clsFile: ${clsFile.absolutePath}")
             println("[javassist] originPath: $originPath")
 
@@ -72,7 +72,7 @@ class InjectByJavassistKt {
 
             cc.writeFile(originPath)
             cc.detach()
-            println("------ javassist modify end ------")
+            println("------ javassist modify end >>>>>>>>> ")
         }
 
 

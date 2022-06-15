@@ -56,17 +56,17 @@ class LogTransform(private val mProject: Project) : Transform() {
             }
 
             // jar文件直接复制到输出目录即可(注意这步不能没有修改就不写，否则运行会报错找不到类)
-            trans.inputs.forEach { input ->
-                // 所有的jar类型输入流
-                input.jarInputs.forEach { jarInput ->
-                    val dest = trans.outputProvider.getContentLocation(
-                        jarInput.name,
-                        jarInput.contentTypes, jarInput.scopes, Format.JAR
-                    )
+            // 所有的jar类型输入流
+            input.jarInputs.forEach { jarInput ->
+                val dest = trans.outputProvider.getContentLocation(
+                    jarInput.name,
+                    jarInput.contentTypes,
+                    jarInput.scopes,
+                    Format.JAR
+                )
 
-                    FileUtils.copyFile(jarInput.file, dest)
-//                    println("[transform] output_jar: $dest")
-                }
+                FileUtils.copyFile(jarInput.file, dest)
+                println("[transform] output_jar: $dest" + jarInput.file.absolutePath)
             }
         }
 
