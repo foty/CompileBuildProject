@@ -1,5 +1,6 @@
 package com.log
 
+import javassist.ClassClassPath
 import javassist.ClassPool
 import org.gradle.api.Project
 import java.io.File
@@ -37,26 +38,24 @@ class InjectByJavassistKt {
             val pool = ClassPool.getDefault()
             // 加入当前路径
             pool.appendClassPath(originPath)
-
+            // 加入android相关环境(groovy可以这样使用)
 //            pool.appendClassPath(project.android.bootClasspath[0].toString())
-
-//            val classPath =  ClassClassPath(this::class.java)
-//            pool.insertClassPath(classPath)
+            //
+            pool.insertClassPath("F:\\androidStudio\\sdk\\platforms\\android-30\\android.jar")
 
             pool.importPackage("android.widget.Toast")
+            // 引入android.os.Bundle包，因为onCreate方法参数有Bundle
+            pool.importPackage("android.os.Bundle")
 
             val cc = pool.get("com.example.compilebuildproject.MainActivity")
             //解冻
             if (cc.isFrozen) cc.defrost()
 
             // 修改 onCreate()
-            // 引入android.os.Bundle包，因为onCreate方法参数有Bundle
-//            pool.importPackage("android.os.Bundle")
             val personFly = cc.getDeclaredMethod("onCreate")
             println("[javassist] $personFly")
-
-//            personFly.insertBefore("System.out.println(\"织入代码I\");")
-//            personFly.insertAfter("System.out.println(\"织入代码II\");")
+            personFly.insertBefore("System.out.println(\"织入代码I\");")
+            personFly.insertAfter("System.out.println(\"织入代码II\");")
 
             //修改say()方法
 //            val say = cc.getDeclaredMethod("say")
@@ -68,7 +67,7 @@ class InjectByJavassistKt {
 //                        "android.widget.Toast.makeText(MainActivity.this,\"我是字节码修改添加的语句\""
 //                                + ",android.widget.Toast.LENGTH_LONG).show();"
 //                    )
-                    it.insertAfter("System.out.println(\"我是javassist织入的代码\");")
+                    it.insertAfter("System.out.println(\"say()：我是javassist织入的代码\");")
                 }
             }
 

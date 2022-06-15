@@ -32,7 +32,7 @@ class InjectByJavassist {
         // 加入当前路径
         pool.appendClassPath(originPath)
         pool.appendClassPath(project.android.bootClasspath[0].toString())
-
+        println("[javassist] bootClasspath[0]: "+project.android.bootClasspath[0].toString())
         CtClass cc = pool.get("com.example.compilebuildproject.MainActivity")
         CtMethod personFly = cc.getDeclaredMethod("onCreate")
 

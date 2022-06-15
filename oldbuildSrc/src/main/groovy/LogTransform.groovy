@@ -4,7 +4,7 @@ import com.android.build.api.transform.Transform
 import com.android.build.api.transform.TransformException
 import com.android.build.api.transform.TransformInvocation
 import com.android.build.gradle.internal.pipeline.TransformManager
-import com.android.utils.FileUtils
+import org.apache.commons.io.FileUtils
 import org.gradle.api.Project
 
 class LogTransform extends Transform {

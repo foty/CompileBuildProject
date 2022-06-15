@@ -37,6 +37,3 @@ dependencies {
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
-
-//  https://juejin.cn/post/6844904169833234439
-// https://blog.csdn.net/qq_20613731/article/details/119766219
