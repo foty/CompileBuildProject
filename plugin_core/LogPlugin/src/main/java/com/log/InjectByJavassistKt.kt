@@ -1,6 +1,5 @@
 package com.log
 
-import javassist.ClassClassPath
 import javassist.ClassPool
 import org.gradle.api.Project
 import java.io.File
@@ -38,9 +37,10 @@ class InjectByJavassistKt {
             val pool = ClassPool.getDefault()
             // 加入当前路径
             pool.appendClassPath(originPath)
+
             // 加入android相关环境(groovy可以这样使用)
 //            pool.appendClassPath(project.android.bootClasspath[0].toString())
-            //
+            // kotlin写法不允许上面的写法，未找到动态加载的方法。只能固定路径
             pool.insertClassPath("F:\\androidStudio\\sdk\\platforms\\android-30\\android.jar")
 
             pool.importPackage("android.widget.Toast")
@@ -58,16 +58,15 @@ class InjectByJavassistKt {
             personFly.insertAfter("System.out.println(\"织入代码II\");")
 
             //修改say()方法
-//            val say = cc.getDeclaredMethod("say")
+            val say = cc.getDeclaredMethod("say")
+            say.insertAfter("android.widget.Toast.makeText(this,\"我是字节码修改添加的语句\",Toast.LENGTH_LONG).show();")
+            say.insertAfter("System.out.println(\"say()：我是javassist织入的代码\");")
+
+            // 打印MainActivity的所有方法
             val methods = cc.declaredMethods
             methods.forEach {
                 println("[javassist] ${it.name}")
                 if (it.name.contains("say")) {
-//                    it.insertAfter(
-//                        "android.widget.Toast.makeText(MainActivity.this,\"我是字节码修改添加的语句\""
-//                                + ",android.widget.Toast.LENGTH_LONG).show();"
-//                    )
-                    it.insertAfter("System.out.println(\"say()：我是javassist织入的代码\");")
                 }
             }
 
