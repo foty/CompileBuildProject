@@ -1,7 +1,12 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+    id "log"
+}
 
-// transform插件(buildSrc，使用javassist实现代码织入)
-apply plugin: 'log'
+//apply plugin: 'com.android.application'
+ // transform插件(buildSrc，使用javassist实现代码织入)
+//apply plugin: 'log'
+
 
 android {
     compileSdkVersion 30

@@ -1,5 +1,10 @@
 apply plugin: 'groovy'
 
+apply plugin: 'java-gradle-plugin'
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
 repositories {
     google()
     mavenCentral()
@@ -12,7 +17,7 @@ gradlePlugin {
             // 在 app 模块需要通过 id 引用这个插件
             id = 'log'
             // 实现这个插件的类的路径
-            implementationClass = 'LogsPlugin'
+            implementationClass = 'com.log.LogsPlugin'
         }
     }
 }
@@ -20,10 +25,13 @@ gradlePlugin {
 dependencies {
     implementation gradleApi() // gradle相关的API
     implementation localGroovy() // groovy语言支持
+
     //使用transform功能需要添加该依赖
-    implementation 'com.android.tools.build:gradle:3.5.3'
+    implementation 'com.android.tools.build:gradle:7.0.2'
     //
     implementation 'org.javassist:javassist:3.27.0-GA'
+    // 为了使用FileUtils工具类
+    implementation 'commons-io:commons-io:2.11.0'
 }
 
 tasks.withType(JavaCompile) {

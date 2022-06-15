@@ -10,6 +10,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        say();
     }
 
+    public void say() {
+
+    }
+
+    public void listen() {
+
+    }
+
+    public void read() {
+
+    }
 }
